@@ -8,7 +8,7 @@ Magic::Magic()
 }
 
 Magic::Magic(BattleField * field, int cost, string name, int power)
-	:Card(cost,name,field),nPower(power)
+	:Card(cost,name,field),nPower(power),nPowerBonus(0)
 {
 }
 

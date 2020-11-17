@@ -18,7 +18,7 @@ protected:
 public:
 	Card() {};	
 	Card(int cost, string name, BattleField * field);
-	virtual ~Card() {	}
+	virtual ~Card() {}
 
 	virtual void InitStat()	{ nCost = nCostOrigin; }
 
