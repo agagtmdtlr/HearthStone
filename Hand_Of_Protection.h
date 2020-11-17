@@ -13,6 +13,9 @@ public:
 	);
 	virtual ~Hand_Of_Protection(){}
 	virtual void FirstSkill() override;
+	virtual void Info() override;
 	virtual void detail() override;
+
+
 };
 

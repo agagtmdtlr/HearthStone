@@ -11,8 +11,7 @@ public:
 	Humility(
 		BattleField * field		
 	);
-
-	virtual void Info() override;
 	virtual void FirstSkill() override;
+	virtual void detail() override;
 };
 
