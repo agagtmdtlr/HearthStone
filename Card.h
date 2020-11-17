@@ -10,7 +10,10 @@ protected:
 	int nThisCardUserNumber;
 	int nCost;	
 	int nCostOrigin;
+	
 	string strName;
+	string strPlusSkillDetail;
+	
 	// 카드 효과 발생시 필드를 직접 제어
 	BattleField * battleFieldOfCard;	
 	// 관찰자 목록
@@ -28,10 +31,13 @@ public:
 		nCost += val; 
 		if (nCost < 0) nCost = 0;
 	}
+
+	virtual string GetName() { return strName; }
 	virtual bool GetDelete() { return isDelete; }
 
 	virtual void SetDelete(bool val);
 	
+	virtual void SetPlusSkillDetail(string detail) { strPlusSkillDetail = detail; }
 
 	virtual void Use();
 	
@@ -47,6 +53,8 @@ public:
 	virtual int GetThisCardUser() { return nThisCardUserNumber; }
 
 	virtual int SelectCard(vector<Card*> *pCardCategory);
+
+	virtual void EraseObserverFromObserverList(int turn);
 	
 };
 

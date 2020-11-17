@@ -1,13 +1,11 @@
 #pragma once
 #include "Secret.h"
-class Eye_For_An_Eye :
+class Repentance :
 	public Secret
 {
-private:
-	int nDeathCount;
 public:
-	Eye_For_An_Eye() {}
-	Eye_For_An_Eye(
+	Repentance() {}
+	Repentance(
 		BattleField * field,
 		int cost,
 		string name,

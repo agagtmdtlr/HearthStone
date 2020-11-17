@@ -8,14 +8,23 @@ Hand_Of_Protection::Hand_Of_Protection(BattleField * field, int cost, string nam
 {
 }
 
-void Hand_Of_Protection::FirstSkill()
+bool Hand_Of_Protection::FirstSkill()
 {
 	Creature * creature = SelectCreatureOfAllField();
-	creature->SetHolyShield(true);
+	if (creature != nullptr)
+	{
+		creature->SetHolyShield(true);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
 }
 
 void Hand_Of_Protection::detail()
 {
 	Magic::detail();
-	cout << "하수인에게 [천상의 보호막]을 부여합니다."
+	cout << "하수인에게 [천상의 보호막]을 부여합니다." << endl;
 }

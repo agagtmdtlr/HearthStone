@@ -45,6 +45,17 @@ void Secret::Use()
 	Sleep(1000);
 }
 
+void Secret::Info()
+{
+	cout << strName << "|" << nCost;
+}
+
+void Secret::detail()
+{
+	cout << "이름 : " << strName << endl
+		<< "코스트 : " << nCost << endl;		
+}
+
 void Secret::FirstSkill()
 {
 }

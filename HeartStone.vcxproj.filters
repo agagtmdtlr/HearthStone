@@ -93,11 +93,41 @@
     <ClCompile Include="Noble_Sacrifice.cpp">
       <Filter>Source Files\Secret</Filter>
     </ClCompile>
-    <ClCompile Include="Hand_Of_Protection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Eye_For_An_Eye.cpp">
       <Filter>Source Files\Secret</Filter>
+    </ClCompile>
+    <ClCompile Include="Hand_Of_Protection.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Holy_Light.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Lay_On_Hands.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Holy_Wrath.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Blessing_Of_Aeons.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Consecration.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Repentance.cpp">
+      <Filter>Source Files\Secret</Filter>
+    </ClCompile>
+    <ClCompile Include="Avenging_Wrath.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Blessing_Of_Kings.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Blessing_Of_Wisdorn.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Righteousness.cpp">
+      <Filter>Source Files\Magic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,11 +188,41 @@
     <ClInclude Include="Hand_Of_Salvation.h">
       <Filter>Header Files\Secret</Filter>
     </ClInclude>
-    <ClInclude Include="Hand_Of_Protection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Eye_For_An_Eye.h">
       <Filter>Header Files\Secret</Filter>
+    </ClInclude>
+    <ClInclude Include="Hand_Of_Protection.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Holy_Light.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Blessing_Of_Aeons.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Consecration.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Holy_Wrath.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Lay_On_Hands.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Repentance.h">
+      <Filter>Header Files\Secret</Filter>
+    </ClInclude>
+    <ClInclude Include="Avenging_Wrath.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Blessing_Of_Kings.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Blessing_Of_Wisdorn.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Righteousness.h">
+      <Filter>Header Files\Magic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

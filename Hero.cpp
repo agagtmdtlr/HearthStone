@@ -14,6 +14,8 @@ Hero::Hero(BattleField * field, int cost, string name, int power, int shield, in
 {
 	if (weapon_ != nullptr)
 		weapon = weapon_;
+	else
+		weapon = nullptr;
 }
 
 

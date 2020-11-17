@@ -17,6 +17,8 @@ public:
 		int power
 	);
 	virtual void Use() override;
+	virtual void Info() override;
+	virtual void detail() override;
 	virtual void FirstSkill();
 };
 

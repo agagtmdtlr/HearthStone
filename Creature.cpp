@@ -65,7 +65,7 @@ void Creature::InitStat()
 	isMagicTargeted = isMagicTargetedOrigin;
 	isSilence = false;
 	isInvincibility = false;
-	
+	strPlusSkillDetail = "";
 }
 
 void Creature::SetShield(int val)
@@ -140,12 +140,24 @@ void Creature::SummonCreature(int turn)
 	cout << "=================================" << endl;
 	cout << "==" << strName << "를(을) 소환합니다==" << endl;
 	cout << "=================================" << endl;	
-	battleFieldOfCard->cardsOfField[turn].push_back(this);		
+	battleFieldOfCard->cardsOfField[turn].push_back(this);	
+	ExcuteObserver(EVENT::FIELD);
 	
 }
 
 
 
+void Creature::SetSilence(bool val)
+{
+	isSilence = val;
+	
+	if (isSilence == true)
+	{
+		ExcuteObserver(EVENT::SILENCE);
+		InitStat();
+	}
+		
+}
 void Creature::AttackSkill(Card * target)
 {
 	return;
@@ -177,6 +189,7 @@ void Creature::detail() // 세부 정보
 	cout << "천상의 보호막 : ";
 	if (isHolyShiled) cout << "보유" << endl;
 	else cout << "없음" << endl;
+	cout << strPlusSkillDetail << endl;
 }
 
 

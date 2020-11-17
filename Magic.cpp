@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "BattleField.h"
 #include "Creature.h"
+#include "Hero.h"
 #include "Magic.h"
 
 Magic::Magic()
@@ -9,7 +10,7 @@ Magic::Magic()
 }
 
 Magic::Magic(BattleField * field, int cost, string name, int power, bool damage)
-	:Card(cost,name,field),nPower(power),nPowerBonus(0),isDamageMagic(damage)
+	:Card(cost, name, field), nPower(power), nPowerBonus(0), isDamageMagic(damage)
 {
 }
 
@@ -45,12 +46,12 @@ Creature * Magic::SelectCreatureOfAllField()
 			}
 		}
 	}
-	if (targetSum[0] + targetSum[1] <= 0) return;
+	if (targetSum[0] + targetSum[1] <= 0) return nullptr;
 
 	// 필드에 하수인이 존재하므로 선택을 수행한다.
 	int selectNum;
 	int fieldNum = 0;
-	int endNum;
+	int endNum = 0;
 	if (selectList[0].size() > 0 && selectList[1].size() > 0)
 	{
 		while (1)
@@ -92,16 +93,86 @@ Creature * Magic::SelectCreatureOfAllField()
 	return creature;
 }
 
+Hero * Magic::SelectHeroOfUser()
+{
+	vector<Card *> selectList;
+
+	int targetSum[2] = { 0,0 };
+	for (int i = 0; i < 2; i++)
+	{
+
+		Creature * creature = (Creature *)battleFieldOfCard->User[i];
+		if (i == nThisCardUserNumber)
+			selectList.push_back(creature);
+		// 상대 영웅
+		if (creature->GetMagicTargeted() == true &&
+			creature->GetInvincibility() == false &&
+			i != nThisCardUserNumber)
+		{
+			selectList.push_back(creature);
+			targetSum[i]++;
+		}
+	}
+	if (selectList.size() == 1)
+		return (Hero *)selectList[0];
+	int selectNum = SelectCard(&selectList);
+	Hero * hero = (Hero*)selectList[selectNum];
+	return hero;
+}
+
+Card * Magic::SelectCardOfFieldAndHero()
+{
+	int inputNum = 0;
+	bool quitLoop = true;
+	do
+	{
+		cout << "누구를 선택 하시겠습니까?(0.영웅 1.하수인 2.취소)" << endl;
+		inputNum = InputVariable<int>(inputNum);
+		Hero * hero = nullptr;
+		Creature * creature = nullptr;
+		switch (inputNum)
+		{
+		case 0:
+			
+			hero = SelectHeroOfUser();
+			return hero;
+			
+		case 1:
+			
+			creature = SelectCreatureOfAllField();
+			if (creature != nullptr)
+			{
+				return creature;				
+			}
+			else
+			{
+				quitLoop = false;
+				break;
+			}
+		case 2:
+			return nullptr;
+		default:
+			quitLoop = false;
+			break;
+		}
+	} while (!quitLoop);
+	return nullptr;
+}
+
 void Magic::Use()
 {
 	int turn = nThisCardUserNumber;
 	if (battleFieldOfCard->cost[turn] >= nCost)
 	{
-		battleFieldOfCard->cost[turn] -= nCost; // 코스트 소모
+		if (this->FirstSkill() == false)
+		{
+			cout << "카드를 사용할 수 없습니다" << endl;
+			Sleep(500);
+		}
 		cout << "=================================" << endl;
 		cout << "==" << strName << "를(을) 사용합니다==" << endl;
 		cout << "=================================" << endl;
-		this->FirstSkill();
+		battleFieldOfCard->cost[turn] -= nCost; // 코스트 소모		
 		Card::Use();
 		isDelete = true;
 	}
@@ -114,14 +185,17 @@ void Magic::Use()
 	Sleep(1000);
 }
 
-void Magic::FirstSkill()
+bool Magic::FirstSkill()
 {
+	return true;
 }
 
 void Magic::Info()
 {
 	cout << strName << "|" << nCost;
-	if (isDamageMagic) cout << "|" << nPower;
+	if (isDamageMagic) cout << "|" << nPower + nPowerBonus;
+	else cout << "|" << nPower;
+
 }
 
 void Magic::detail()

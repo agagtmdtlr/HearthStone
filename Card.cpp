@@ -54,6 +54,19 @@ int Card::SelectCard(vector<Card*> *pCardCategory)
 	}
 }
 
+void Card::EraseObserverFromObserverList(int turn)
+{
+	auto & observerList = battleFieldOfCard->observers[turn];
+	for (int i = 0; i < observerList.size();)
+	{
+		if (observerList[i] == this)
+		{
+			observerList.erase(observerList.begin() + i);
+			break;
+		}
+	}
+}
+
 
 
 

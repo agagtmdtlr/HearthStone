@@ -114,12 +114,8 @@ public:
 	virtual bool GetAgro() { return isAgro; }	
 	
 	virtual bool GetSilence() { return isSilence; }
-	virtual void SetSilence(bool val)
-	{
-		isSilence = val;
-		if (isSilence == true)
-			InitStat();
-	}
+	virtual void SetSilence(bool val);
+	
 	virtual bool GetAttackTargeted() { return isAttackTargeted; }
 	virtual void SetAttackTargeted(bool val) { isAttackTargeted = val; }
 	

@@ -20,7 +20,7 @@ Guardian_Of_Kings::~Guardian_Of_Kings()
 
 void Guardian_Of_Kings::FirstSkill()
 {
-	int turn = battleFieldOfCard->nPlayerTurn % 2;
+	int turn = nThisCardUserNumber;
 	Creature * user = dynamic_cast<Creature *>(battleFieldOfCard->User[turn]);
 	user->SetShield(6);
 }

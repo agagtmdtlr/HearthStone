@@ -1,5 +1,9 @@
 #pragma once
 #include "Card.h"
+
+class Creature;
+class Hero;
+
 class Magic :
 	public Card
 {
@@ -24,15 +28,18 @@ public:
 		else return nPower + nPowerBonus;
 	}
 	virtual int GetPowerBonus() { return nPowerBonus; }
-	virtual void SetPowerBonus(int val) { nPowerBonus = val; }	
+	virtual void SetPowerBonus(int val) { nPowerBonus = val; }
 
 	virtual bool GetIsDamageMagic() { return isDamageMagic; }
 
 	virtual void Use() override;
-	virtual void FirstSkill();
+	virtual bool FirstSkill();
 	virtual void Info() override;
 	virtual void detail() override;
 
-	virtual Creature * SelectCreatureOfAllField();
+	virtual Creature * SelectCreatureOfAllField();	// 모든 전장 하수인 중 하나 선택
+	virtual Hero * SelectHeroOfUser(); // 영웅 중 선택
+	virtual Card * SelectCardOfFieldAndHero(); // 영웅과 하수인 중 선택
+
 };
 

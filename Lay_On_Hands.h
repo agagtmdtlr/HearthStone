@@ -1,20 +1,18 @@
 #pragma once
 #include "Magic.h"
-class Hand_Of_Protection :
+class Lay_On_Hands :
 	public Magic
 {
 public:
-	Hand_Of_Protection(){}
-	Hand_Of_Protection(
+	Lay_On_Hands() {}
+	Lay_On_Hands(
 		BattleField * field,
 		int cost,
 		string name,
 		int power
 	);
-	virtual ~Hand_Of_Protection(){}
+	virtual ~Lay_On_Hands() {}
 	virtual bool FirstSkill() override;
 	virtual void detail() override;
-
-
 };
 

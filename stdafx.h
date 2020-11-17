@@ -19,6 +19,7 @@ enum class EVENT
 	USE,
 	FIELD,
 	ATTACK,
+	SILENCE,
 	DAMAGE,
 	HEAL,
 	NONE,

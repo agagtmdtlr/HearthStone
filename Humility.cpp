@@ -12,10 +12,19 @@ Humility::Humility(BattleField * field)
 {
 }
 
-void Humility::FirstSkill()
+bool Humility::FirstSkill()
 {
 	Creature * creature = SelectCreatureOfAllField();
-	creature->SetPower(-(creature->GetPower() - 1));
+	if (creature != nullptr)
+	{
+		creature->SetPower(-(creature->GetPower() - 1));
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
 }
 
 void Humility::detail()

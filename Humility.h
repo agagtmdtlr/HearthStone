@@ -11,7 +11,8 @@ public:
 	Humility(
 		BattleField * field		
 	);
-	virtual void FirstSkill() override;
+	virtual ~Humility() {}
+	virtual bool FirstSkill() override;
 	virtual void detail() override;
 };
 

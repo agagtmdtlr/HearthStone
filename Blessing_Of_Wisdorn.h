@@ -1,20 +1,23 @@
 #pragma once
-#include "Secret.h"
-class Eye_For_An_Eye :
-	public Secret
+#include "Magic.h"
+class Blessing_Of_Wisdorn :
+	public Magic
 {
 private:
-	int nDeathCount;
+	Creature * target;
+	string strDescribeSkillDetail;
 public:
-	Eye_For_An_Eye() {}
-	Eye_For_An_Eye(
+	Blessing_Of_Wisdorn() {}
+	Blessing_Of_Wisdorn(
 		BattleField * field,
 		int cost,
 		string name,
 		int power
 	);
-	virtual void FirstSkill() override;
+	virtual ~Blessing_Of_Wisdorn() {}
+	virtual bool FirstSkill() override;
 	virtual void detail() override;
+
 	virtual void onNotify(Card& card, EVENT event) override;
 	virtual void onNotify(Card* card, EVENT event) override;
 };

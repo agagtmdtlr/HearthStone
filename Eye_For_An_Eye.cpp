@@ -14,6 +14,13 @@ void Eye_For_An_Eye::FirstSkill()
 	battleFieldOfCard->observers[nThisCardUserNumber].push_back(this);
 }
 
+void Eye_For_An_Eye::detail()
+{
+	Secret::detail();
+	cout << "[비밀]" << endl
+		<< "내 영웅이 피해를 받으면, 적영웅에게도 같은 피해를 줍니다." << endl;
+}
+
 void Eye_For_An_Eye::onNotify(Card & card, EVENT event)
 {
 	if (event == EVENT::DAMAGE && &card == battleFieldOfCard->User[nThisCardUserNumber])

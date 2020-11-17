@@ -127,9 +127,14 @@
   <ItemGroup>
     <ClCompile Include="AldorPeaceKeeper.cpp" />
     <ClCompile Include="Argent_Protecter.cpp" />
+    <ClCompile Include="Avenging_Wrath.cpp" />
     <ClCompile Include="BattleField.cpp" />
+    <ClCompile Include="Blessing_Of_Aeons.cpp" />
+    <ClCompile Include="Blessing_Of_Kings.cpp" />
+    <ClCompile Include="Blessing_Of_Wisdorn.cpp" />
     <ClCompile Include="Bronze_Broodmother.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Consecration.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Eye_For_An_Eye.cpp" />
     <ClCompile Include="GameManage.cpp" />
@@ -137,12 +142,17 @@
     <ClCompile Include="Hand_Of_Protection.cpp" />
     <ClCompile Include="Hand_Of_Salvation.cpp" />
     <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="Holy_Light.cpp" />
+    <ClCompile Include="Holy_Wrath.cpp" />
     <ClCompile Include="Humility.cpp" />
+    <ClCompile Include="Lay_On_Hands.cpp" />
     <ClCompile Include="Magic.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="IObserver.cpp" />
     <ClCompile Include="Noble_Sacrifice.cpp" />
     <ClCompile Include="Redemption.cpp" />
+    <ClCompile Include="Repentance.cpp" />
+    <ClCompile Include="Righteousness.cpp" />
     <ClCompile Include="Secret.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -153,9 +163,14 @@
   <ItemGroup>
     <ClInclude Include="AldorPeaceKeeper.h" />
     <ClInclude Include="Argent_Protecter.h" />
+    <ClInclude Include="Avenging_Wrath.h" />
     <ClInclude Include="BattleField.h" />
+    <ClInclude Include="Blessing_Of_Aeons.h" />
+    <ClInclude Include="Blessing_Of_Kings.h" />
+    <ClInclude Include="Blessing_Of_Wisdorn.h" />
     <ClInclude Include="Bronze_Broodmother.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="Consecration.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Eye_For_An_Eye.h" />
     <ClInclude Include="GameManage.h" />
@@ -163,11 +178,16 @@
     <ClInclude Include="Hand_Of_Protection.h" />
     <ClInclude Include="Hand_Of_Salvation.h" />
     <ClInclude Include="Hero.h" />
+    <ClInclude Include="Holy_Light.h" />
+    <ClInclude Include="Holy_Wrath.h" />
     <ClInclude Include="Humility.h" />
+    <ClInclude Include="Lay_On_Hands.h" />
     <ClInclude Include="Magic.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="Noble_Sacrifice.h" />
     <ClInclude Include="Redemption.h" />
+    <ClInclude Include="Repentance.h" />
+    <ClInclude Include="Righteousness.h" />
     <ClInclude Include="Secret.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tirion_Fordring.h" />
