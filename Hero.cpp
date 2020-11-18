@@ -95,6 +95,8 @@ void Hero::SetWeapon(Weapon * val)
 	if (weapon != nullptr)
 	{
 		nAttackCountTurn = weapon->GetAttackCount();
-		nAttackCount = nAttackCountTurn;
+		// 무기 장착지 아직 영웅이 공격을 시도하지 않았다면
+		if(nAttackCount > 0)
+			nAttackCount = nAttackCountTurn;
 	}
 }

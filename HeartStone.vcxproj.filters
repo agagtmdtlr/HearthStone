@@ -129,6 +129,24 @@
     <ClCompile Include="Righteousness.cpp">
       <Filter>Source Files\Magic</Filter>
     </ClCompile>
+    <ClCompile Include="Hammer_Of_Wrath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Blessed_Champion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Equality.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Blessing_Of_Might.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lights_Justice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Truesilver_Champion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -223,6 +241,24 @@
     </ClInclude>
     <ClInclude Include="Righteousness.h">
       <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Hammer_Of_Wrath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Blessed_Champion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Equality.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Blessing_Of_Might.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lights_Justice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Truesilver_Champion.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

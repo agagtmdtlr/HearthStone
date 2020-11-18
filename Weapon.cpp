@@ -63,4 +63,18 @@ void Weapon::Use()
 	Sleep(1000);
 }
 
+void Weapon::Info()
+{
+	cout << strName << "|" << nCost << "|" << nPower << "|" << nDurability;
+}
+
+void Weapon::detail()
+{
+	cout << "이름 : " << strName << endl
+		<< "코스트 : " << nCost << endl
+		<< "공격력 : " << nPower << endl
+		<< "내구도 : " << nDurability;
+	cout << strPlusSkillDetail << endl;
+}
+
 

@@ -37,7 +37,7 @@ public:
 
 	virtual void SetDelete(bool val);
 	
-	virtual void SetPlusSkillDetail(string detail) { strPlusSkillDetail = detail; }
+	virtual void SetPlusSkillDetail(string detail) { strPlusSkillDetail += detail; }
 
 	virtual void Use();
 	

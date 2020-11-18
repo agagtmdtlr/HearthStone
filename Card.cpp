@@ -4,7 +4,8 @@
 #include "Card.h"
 
 Card::Card(int cost, string name, BattleField * field)
-	:nCost(cost), nCostOrigin(cost), strName(name),battleFieldOfCard(field),isDelete(false)
+	:nCost(cost), nCostOrigin(cost), strName(name),battleFieldOfCard(field),isDelete(false),
+	strPlusSkillDetail("")
 {
 	nThisCardUserNumber = field->nPlayerTurn % 2;
 }

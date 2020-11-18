@@ -90,10 +90,30 @@ public:
 	virtual void SetMaxShield(int val)// 최대 체력 증가
 	{ 
 		nMaxShield += val;
+		if (nMaxShield <= 0) nMaxShield = 1;
 		// 3 / 5 -> 3 / 5-3=2 
 		// 2-3=-1 -> 3+(-1) = 2;
-		nShield += val;
-		if (nShield < 1) nShield = 1;
+
+		// decreation case
+		// 2 / 10 
+		// 2 / 1
+		// 1 / 1
+
+		// 4 / 6
+		// 4 / 5
+		// 4 / 5
+
+		// increastion case
+		// 4 / 6
+		// 4 / 7
+		// 5 / 7
+		if (val > 0)
+			nShield += val;
+		else if (val < 0)
+		{
+			if (nShield > nMaxShield)
+				nShield = nMaxShield;
+		}					
 	}	
 
 	virtual int GetShieldOrigin() { return nShieldOrigin; }	

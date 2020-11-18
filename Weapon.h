@@ -59,5 +59,7 @@ public:
 	virtual void Use() override;
 	
 	inline virtual void FirstSkill() {};
+	virtual void Info() override;
+	virtual void detail() override;
 };
 

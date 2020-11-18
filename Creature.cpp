@@ -184,11 +184,11 @@ void Creature::detail() // 세부 정보
 		<< "파워 : " << nPower << endl
 		<< "체력 : " << nShield << endl;
 	cout << "어그로 : ";
-	if (isAgro) cout << "보유" << endl;
-	else cout << "없음" << endl;
+	if (isAgro) cout << "보유";
+	else cout << "없음";
 	cout << "천상의 보호막 : ";
-	if (isHolyShiled) cout << "보유" << endl;
-	else cout << "없음" << endl;
+	if (isHolyShiled) cout << "보유";
+	else cout << "없음";
 	cout << strPlusSkillDetail << endl;
 }
 

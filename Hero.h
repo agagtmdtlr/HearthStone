@@ -48,9 +48,8 @@ public:
 		// 2 cnt weapon destroy when use 2cnt
 		// hero org cnt 1 but we att 2
 		// 2 - 2 - 1  = - 1		
-		nAttackCount = nAttackCount - nAttackCountOrigin;
+		nAttackCount -= nAttackCount - nAttackCountOrigin;
 		nAttackCountTurn = nAttackCountOrigin;
-	}
-	
+	}	
 };
 
