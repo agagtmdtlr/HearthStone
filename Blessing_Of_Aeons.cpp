@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Blessing_Of_Aeons.h"
 
-Blessing_Of_Aeons::Blessing_Of_Aeons(BattleField * field, int cost, string name, int power)
+Blessing_Of_Aeons::Blessing_Of_Aeons(BattleField * field)
 	:Magic(field, 1, "영겁의 축복", 1, false)
 {
 	strDescribeSkillDetail = "\n하수인에게\n\"내 턴이 끝날 때, +1/+1을 얻음\"능력을 부여합니다.";
@@ -56,6 +56,7 @@ void Blessing_Of_Aeons::onNotify(Card & card, EVENT event)
 
 void Blessing_Of_Aeons::onNotify(Card * card, EVENT event)
 {
+	
 	// 내 턴이 끝날떄(해당 마법카드를 사용한 유저의 턴)
 	if (event == EVENT::END &&
 		nThisCardUserNumber == battleFieldOfCard->nPlayerTurn % 2)
@@ -63,7 +64,7 @@ void Blessing_Of_Aeons::onNotify(Card * card, EVENT event)
 		target->SetPower(nPower);
 		target->SetMaxShield(nPower);
 	}
-
+	if (card == nullptr) return;
 	// 대상 카드가 죽거나 침묵에 걸렸을 경우
 	if (card == target && (event == EVENT::SILENCE || event == EVENT::DIE))
 	{

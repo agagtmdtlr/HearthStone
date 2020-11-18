@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Righteousness.h"
 
-Righteousness::Righteousness(BattleField * field, int cost, string name, int power)
+Righteousness::Righteousness(BattleField * field)
 	:Magic(field, 5, "Á¤ÀÇ", 0, false)
 {
 }

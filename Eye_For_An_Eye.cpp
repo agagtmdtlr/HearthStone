@@ -5,7 +5,8 @@
 #include "Eye_For_An_Eye.h"
 
 
-Eye_For_An_Eye::Eye_For_An_Eye(BattleField * field, int cost, string name, int power)
+Eye_For_An_Eye::Eye_For_An_Eye(BattleField * field)
+	:Secret(field,1,"´«¿¡´Â ´«",0)
 {
 }
 
@@ -23,6 +24,7 @@ void Eye_For_An_Eye::detail()
 
 void Eye_For_An_Eye::onNotify(Card & card, EVENT event)
 {
+
 	if (event == EVENT::DAMAGE && &card == battleFieldOfCard->User[nThisCardUserNumber])
 	{
 		Hero * hero = (Hero *)battleFieldOfCard->User[nThisCardUserNumber];
@@ -46,6 +48,7 @@ void Eye_For_An_Eye::onNotify(Card & card, EVENT event)
 
 void Eye_For_An_Eye::onNotify(Card * card, EVENT event)
 {
+	if (card == nullptr) return;
 	if (event == EVENT::DAMAGE && card == battleFieldOfCard->User[nThisCardUserNumber])
 	{
 		Hero * hero = (Hero *)battleFieldOfCard->User[nThisCardUserNumber];

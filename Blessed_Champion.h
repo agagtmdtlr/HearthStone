@@ -8,10 +8,7 @@ private:
 public:
 	Blessed_Champion() {}
 	Blessed_Champion(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Blessed_Champion() {}
 	virtual bool FirstSkill() override;

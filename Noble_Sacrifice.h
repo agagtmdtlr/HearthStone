@@ -6,10 +6,7 @@ class Noble_Sacrifice :
 public:
 	Noble_Sacrifice() {}
 	Noble_Sacrifice(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual void FirstSkill() override;
 	virtual void onNotify(Card& card, EVENT event) override;

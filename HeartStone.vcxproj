@@ -89,6 +89,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,6 +137,7 @@
     <ClCompile Include="Blessing_Of_Wisdorn.cpp" />
     <ClCompile Include="Bronze_Broodmother.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardSpawner.cpp" />
     <ClCompile Include="Consecration.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Equality.cpp" />
@@ -161,7 +163,9 @@
     <ClCompile Include="Secret.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Sword_Of_Justice.cpp" />
     <ClCompile Include="Tirion_Fordring.cpp" />
     <ClCompile Include="Truesilver_Champion.cpp" />
     <ClCompile Include="Weapon.cpp" />
@@ -178,6 +182,7 @@
     <ClInclude Include="Blessing_Of_Wisdorn.h" />
     <ClInclude Include="Bronze_Broodmother.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardSpawner.h" />
     <ClInclude Include="Consecration.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Equality.h" />
@@ -201,6 +206,7 @@
     <ClInclude Include="Righteousness.h" />
     <ClInclude Include="Secret.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Sword_Of_Justice.h" />
     <ClInclude Include="Tirion_Fordring.h" />
     <ClInclude Include="Truesilver_Champion.h" />
     <ClInclude Include="Weapon.h" />

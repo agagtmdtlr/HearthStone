@@ -9,10 +9,7 @@ private:
 public:
 	Blessing_Of_Wisdorn() {}
 	Blessing_Of_Wisdorn(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Blessing_Of_Wisdorn() {}
 	virtual bool FirstSkill() override;

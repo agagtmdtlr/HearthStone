@@ -6,10 +6,7 @@ class Consecration :
 public:
 	Consecration() {}
 	Consecration(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Consecration() {}
 	virtual bool FirstSkill() override;

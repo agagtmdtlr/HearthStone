@@ -147,6 +147,12 @@
     <ClCompile Include="Truesilver_Champion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sword_Of_Justice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CardSpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -258,6 +264,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Truesilver_Champion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword_Of_Justice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CardSpawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

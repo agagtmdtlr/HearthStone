@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Avenging_Wrath.h"
 
-Avenging_Wrath::Avenging_Wrath(BattleField * field, int cost, string name, int power)
+Avenging_Wrath::Avenging_Wrath(BattleField * field)
 	:Magic(field, 6, "응징의 격노", 8, true)
 {
 }
@@ -22,10 +22,10 @@ bool Avenging_Wrath::FirstSkill()
 	{
 		targetList.push_back((Creature *)fieldList[i]);
 	}	
-	int ListSize = targetList.size(); // 최종 완성된 리스트의 크기
+	size_t ListSize = targetList.size(); // 최종 완성된 리스트의 크기
 
 	int randNumber;
-	srand(time(NULL));
+	srand((unsigned int)(time(NULL)));
 	rand();
 
 	// 주문의 피해력 만큼 상대를 무작위로 1씩 때린다.

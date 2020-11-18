@@ -9,5 +9,6 @@ public:
 	virtual ~IObserver(){}
 	virtual void onNotify(Card& card, EVENT event) = 0;
 	virtual void onNotify(Card* card, EVENT event) = 0;
+	virtual void onNotify(EVENT event) = 0;
 };
 

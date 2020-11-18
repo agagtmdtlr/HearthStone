@@ -8,10 +8,7 @@ private:
 public:
 	Blessing_Of_Kings() {}
 	Blessing_Of_Kings(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field		
 	);
 	virtual ~Blessing_Of_Kings() {}
 	virtual bool FirstSkill() override;

@@ -1,21 +1,22 @@
 #pragma once
 #include "stdafx.h"
-#include "BattleField.h"
-
+#include "Card.h"
+#include "Creature.h"
 #include "Hero.h"
 #include "Weapon.h"
 #include "Secret.h"
-#include "AldorPeaceKeeper.h"
-#include "Argent_Protecter.h"
-#include "Bronze_Broodmother.h"
-#include "Tirion_Fordring.h"
+
+#include "CardSpawner.h"
+
+#include "BattleField.h"
+
 
 
 
 BattleField::BattleField()	
-{
-	for (int i = 0; i < 2; i++)
-		User[i] = new Creature(this, 0, "Player" + i, 0, 5, 0, false, false, false);
+{	
+	User[0] = nullptr;
+	User[1] = nullptr;
 	cardsOfDeck->reserve(DeckSetting);
 	cardsOfField->reserve(FieldMax);
 	cardsOfHand->reserve(HandMax);
@@ -185,10 +186,8 @@ void BattleField::DeleteCards()
 				{
 					i++;
 				}
-			}
-			
-		}
-			
+			}			
+		}			
 		
 		i = 0;
 		while (1)
@@ -291,10 +290,20 @@ void BattleField::InitGame()
 	// 유저 정보 초기화
 	for (int i = 0; i < 2; i++)
 	{
-		cost[i] = 0;
-		delete User[i];
-		User[i] = new Hero(this, 0, "Player" + i, 0, 5, 0, false, false, false);
+		cost[i] = 0;	
+		if (User[i] != nullptr)
+		{
+			delete User[i];
+			nPlayerTurn = i;
+			User[i] = new Hero(this, 0, "Player" + i, 0, 600, 1, false, false, false);
+		}					
+		else
+		{
+			nPlayerTurn = i;
+			User[i] = new Hero(this, 0, "Player" + i, 0, 600, 1, false, false, false);
+		}		
 	}
+	nPlayerTurn = 0;
 
 	// 안에 자료 비우기
 	for (int i = 0; i < 2; i++)
@@ -322,16 +331,51 @@ void BattleField::InitGame()
 			delete garbageCollector[i][j];
 		}
 		garbageCollector[i].clear();
+
+		nPlayerTurn = i;
+
+		vector<CardName> cardlist =
+		{
+				CardName::ALDOR_PEACE_KEEPER,
+				CardName::ARGENT_PROTECTER,
+				CardName::BRONZE_BROODMOTHER,
+				CardName::GUARDIAN_OF_KINGS,
+				CardName::TIRION_FORDRING,
+				CardName::AVENGING_WRATH,
+				CardName::BLESSING_OF_AEONS,
+				CardName::BLESSING_OF_KINGS,
+				CardName::BLESSING_OF_WISDORN,
+				CardName::BLESSING_OF_MIGHT,
+				CardName::BLESSED_CHAMPION,
+				CardName::CONSECRATION,
+				CardName::HAND_OF_PROTECTION,
+				CardName::HOLY_LIGHT,
+				CardName::HOLY_WRATH,
+				CardName::HUMILITY,
+				CardName::LAY_ON_HANDS,
+				CardName::RIGHTEOUSNESS,
+				CardName::EQUALITY,
+				CardName::HAMMER_OF_WRATH,
+				CardName::EYE_FOR_AN_EYE,
+				CardName::HAND_OF_SALVATION,
+				CardName::NOBLE_SACRIFICE,
+				CardName::REDEMPTION,
+				CardName::REPENTANCE,
+				CardName::LIGHTS_JUSTICE,
+				CardName::SWORD_OF_JUSTICE,
+				CardName::TRUESILVER_CHAMPION
+		};
+
+		CardSpawner cardSpawner;
+		if( i == 0)
+			cardSpawner.SpawnCards(&cardlist, this);
+		else if (i == 1)
+		{
+			cardsOfField[i].push_back(new Creature(this, 0, "연습 봇", 999, 99999, 9999, false, false, false));
+		}
 	}	
 
-	for (nPlayerTurn = 0; nPlayerTurn < 2; nPlayerTurn++)
-	{
-		cardsOfDeck[nPlayerTurn].push_back(new Argent_Protecter(this));
-		cardsOfDeck[nPlayerTurn].push_back(new AldorPeaceKeeper(this));
-		//cardsOfDeck[nPlayerTurn].push_back(new Bronze_Broodmother(this));
-		cardsOfDeck[nPlayerTurn].push_back(new Tirion_Fordring(this));
-	}
-	nPlayerTurn = 0;
+	nPlayerTurn = 0;	
 }
 
 void BattleField::InitTurn()

@@ -8,10 +8,7 @@ private:
 public:
 	Hand_Of_Salvation() {}
 	Hand_Of_Salvation(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual void FirstSkill() override;
 	virtual void onNotify(Card& card, EVENT event) override;

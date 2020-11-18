@@ -6,10 +6,7 @@ class Avenging_Wrath :
 public:
 	Avenging_Wrath() {}
 	Avenging_Wrath(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field		
 	);
 	virtual ~Avenging_Wrath() {}
 	virtual bool FirstSkill() override;

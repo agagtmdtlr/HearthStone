@@ -6,7 +6,7 @@
 class Weapon :
 	public Card
 {
-private:
+protected:
 	int equiptedPlayer;
 
 	int nAttackCount;

@@ -6,10 +6,7 @@ class Lay_On_Hands :
 public:
 	Lay_On_Hands() {}
 	Lay_On_Hands(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Lay_On_Hands() {}
 	virtual bool FirstSkill() override;

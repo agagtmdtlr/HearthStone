@@ -44,9 +44,9 @@ public:
 	virtual void Info(){}
 	virtual void detail(){}
 
-	virtual void onNotify(Card& card, EVENT event) {}
-	virtual void onNotify(Card* card, EVENT event) {}
-
+	virtual void onNotify(Card& card, EVENT event) override {}
+	virtual void onNotify(Card* card, EVENT event) override {}
+	virtual void onNotify(EVENT event) override {}
 	virtual void ExcuteObserver(EVENT event) final;
 	
 

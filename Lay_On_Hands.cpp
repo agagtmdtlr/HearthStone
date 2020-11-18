@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Lay_On_Hands.h"
 
-Lay_On_Hands::Lay_On_Hands(BattleField * field, int cost, string name, int power)
+Lay_On_Hands::Lay_On_Hands(BattleField * field)
 	:Magic(field, 8, "신의 축복", 8, false)
 {
 }

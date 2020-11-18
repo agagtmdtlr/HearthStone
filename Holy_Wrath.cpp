@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Holy_Wrath.h"
 
-Holy_Wrath::Holy_Wrath(BattleField * field, int cost, string name, int power)
+Holy_Wrath::Holy_Wrath(BattleField * field)
 	:Magic(field, 5, "신의 격노", 0, true)
 {
 	battleFieldOfCard->observers[nThisCardUserNumber].push_back(this);
@@ -41,9 +41,13 @@ void Holy_Wrath::onNotify(Card & card, EVENT event)
 
 void Holy_Wrath::onNotify(Card * card, EVENT event)
 {
-	if (card->GetThisCardUser() == nThisCardUserNumber && event == EVENT::DRAW)
+	if (card != nullptr)
 	{
-		target->SetShield(-card->GetCost());
+		if (card->GetThisCardUser() == nThisCardUserNumber && event == EVENT::DRAW)
+		{
+			target->SetShield(-card->GetCost());
+		}
 	}
+	
 	EraseObserverFromObserverList(nThisCardUserNumber);
 }

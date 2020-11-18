@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Hammer_Of_Wrath.h"
 
-Hammer_Of_Wrath::Hammer_Of_Wrath(BattleField * field, int cost, string name, int power)
+Hammer_Of_Wrath::Hammer_Of_Wrath(BattleField * field)
 	:Magic(field, 4, "Ãµ¹úÀÇ ¸ÁÄ¡", 3, true)
 {
 }

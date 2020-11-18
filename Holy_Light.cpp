@@ -4,7 +4,7 @@
 #include "Creature.h"
 #include "Holy_Light.h"
 
-Holy_Light::Holy_Light(BattleField * field, int cost, string name, int power)
+Holy_Light::Holy_Light(BattleField * field)
 	:Magic(field, 2, "¼º½º·¯¿î ºû", 6, false)
 {
 }

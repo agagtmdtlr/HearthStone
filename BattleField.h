@@ -1,6 +1,5 @@
 #pragma once
-#include "Card.h"
-#include "Creature.h"
+
 class Card;
 class Creature;
 class IObserver;

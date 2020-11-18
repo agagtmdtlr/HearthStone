@@ -6,10 +6,7 @@ class Holy_Light :
 public:
 	Holy_Light() {}
 	Holy_Light(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Holy_Light() {}
 	virtual bool FirstSkill() override;

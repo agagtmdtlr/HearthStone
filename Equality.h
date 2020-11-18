@@ -6,10 +6,7 @@ class Equality :
 public:
 	Equality() {}
 	Equality(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Equality() {}
 	virtual bool FirstSkill() override;

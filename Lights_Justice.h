@@ -6,18 +6,12 @@ class Lights_Justice :
 public:
 	Lights_Justice() {};
 	Lights_Justice(
-		BattleField * field,
-		int cost, string name,
-		int power, int durability,
-		int attcount
+		BattleField * field
 	);
 
 	Lights_Justice(
 		int userNumber,
-		BattleField * field,
-		int cost, string name,
-		int power, int durability,
-		int attcount
+		BattleField * field
 	);
 };
 

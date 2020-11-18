@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Equality.h"
 
-Equality::Equality(BattleField * field, int cost, string name, int power)
+Equality::Equality(BattleField * field)
 	:Magic(field, 4, "Æòµî", 0, false)
 {
 }

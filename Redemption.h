@@ -6,10 +6,7 @@ class Redemption :
 public:
 	Redemption() {}
 	Redemption(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual void FirstSkill() override;
 	virtual void onNotify(Card& card, EVENT event) override;

@@ -9,10 +9,7 @@ private:
 public:
 	Blessing_Of_Aeons() {}
 	Blessing_Of_Aeons(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field	
 	);
 	virtual ~Blessing_Of_Aeons() {}
 	virtual bool FirstSkill() override;

@@ -8,10 +8,7 @@ private:
 public:
 	Holy_Wrath() {}
 	Holy_Wrath(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Holy_Wrath() {}
 	virtual bool FirstSkill() override;

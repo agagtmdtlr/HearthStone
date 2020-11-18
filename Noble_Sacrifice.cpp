@@ -1,9 +1,10 @@
 #pragma once
 #include "stdafx.h"
+#include "Creature.h"
 #include "BattleField.h"
 #include "Noble_Sacrifice.h"
 
-Noble_Sacrifice::Noble_Sacrifice(BattleField * field, int cost, string name, int power)
+Noble_Sacrifice::Noble_Sacrifice(BattleField * field)
 	:Secret(field, 1, "°í±ÍÇÑ Èñ»ý", 0)
 {
 }
@@ -40,6 +41,7 @@ void Noble_Sacrifice::onNotify(Card & card, EVENT event)
 
 void Noble_Sacrifice::onNotify(Card * card, EVENT event)
 {
+	if (card == nullptr) return;
 	if (event == EVENT::ATTACK && card->GetThisCardUser() == 1 - nThisCardUserNumber)
 	{
 		Creature * creature = new Creature(battleFieldOfCard, 1,

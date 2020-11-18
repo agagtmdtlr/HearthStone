@@ -3,7 +3,7 @@
 #include "BattleField.h"
 #include "Blessing_Of_Wisdorn.h"
 
-Blessing_Of_Wisdorn::Blessing_Of_Wisdorn(BattleField * field, int cost, string name, int power)
+Blessing_Of_Wisdorn::Blessing_Of_Wisdorn(BattleField * field)
 	:Magic(field, 1, "지혜의 축복", 0, false)
 {
 	strDescribeSkillDetail = "\n하수인을 선택합니다.\n그 하수인 공격할 때마다 카드를 뽑습니다.";
@@ -55,6 +55,7 @@ void Blessing_Of_Wisdorn::onNotify(Card & card, EVENT event)
 
 void Blessing_Of_Wisdorn::onNotify(Card * card, EVENT event)
 {
+	if (card == nullptr) return;
 	// 내 턴이 끝날떄(해당 마법카드를 사용한 유저의 턴)
 	if (event == EVENT::ATTACK && card == target)
 	{

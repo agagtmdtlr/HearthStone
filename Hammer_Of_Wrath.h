@@ -6,10 +6,7 @@ class Hammer_Of_Wrath :
 public:
 	Hammer_Of_Wrath() {}
 	Hammer_Of_Wrath(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Hammer_Of_Wrath() {}
 	virtual bool FirstSkill() override;

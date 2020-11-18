@@ -1,15 +1,15 @@
 #pragma once
 #include "Weapon.h"
-class Truesilver_Champion :
+class Sword_Of_Justice :
 	public Weapon
 {
 public:
-	Truesilver_Champion() {};
-	Truesilver_Champion(
+	Sword_Of_Justice() {};
+	Sword_Of_Justice(
 		BattleField * field
 	);
 
-	Truesilver_Champion(
+	Sword_Of_Justice(
 		int userNumber,
 		BattleField * field
 	);

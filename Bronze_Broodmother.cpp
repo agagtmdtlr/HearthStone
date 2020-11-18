@@ -53,12 +53,13 @@ void Bronze_Broodmother::onNotify(const Card & card, EVENT event)
 
 void Bronze_Broodmother::onNotify(const Card * card, EVENT event)
 {
-	if (card == this && event == EVENT::DRAW == false)
+	int turn = battleFieldOfCard->nPlayerTurn % 2;
+	if (card == this && event == EVENT::DRAW)	
 	{
-		int turn = battleFieldOfCard->nPlayerTurn % 2;
+		
 		cout << "1/1 작은 새끼용을 소환합니다." << endl;
 		Sleep(1000);
-		battleFieldOfCard->cardsOfField->push_back(new Creature(battleFieldOfCard, 0, "작은 새끼용", 1, 1, 1, false, false, false));
+		battleFieldOfCard->cardsOfField->push_back(new Creature(battleFieldOfCard, 1, "작은 새끼용", 1, 1, 1, false, false, false));
 		for (int i = 0; i < battleFieldOfCard->observers[turn].size(); i++)
 		{
 			if (this == battleFieldOfCard->observers[turn][i])

@@ -6,10 +6,7 @@ class Hand_Of_Protection :
 public:
 	Hand_Of_Protection(){}
 	Hand_Of_Protection(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Hand_Of_Protection(){}
 	virtual bool FirstSkill() override;

@@ -4,7 +4,8 @@
 #include "Hero.h"
 #include "Repentance.h"
 
-Repentance::Repentance(BattleField * field, int cost, string name, int power)
+Repentance::Repentance(BattleField * field)
+	:Secret(field,1,"ÂüÈ¸",0)
 {
 }
 
@@ -35,6 +36,7 @@ void Repentance::onNotify(Card & card, EVENT event)
 
 void Repentance::onNotify(Card * card, EVENT event)
 {
+	
 	if (event == EVENT::FIELD)
 	{
 		Creature * target = (Creature *)card;

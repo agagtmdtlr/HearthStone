@@ -4,7 +4,7 @@
 #include "BattleField.h"
 #include "Consecration.h"
 
-Consecration::Consecration(BattleField * field, int cost, string name, int power)
+Consecration::Consecration(BattleField * field)
 	:Magic(field, 4, "½Å¼ºÈ­", 2, true)
 {
 }

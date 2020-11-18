@@ -21,6 +21,11 @@ Hero::Hero(BattleField * field, int cost, string name, int power, int shield, in
 
 Hero::~Hero()
 {
+	if (weapon != nullptr)
+		delete weapon;
+	for (int i = 0; i < secretCards.size(); i++)
+		delete secretCards[i];
+	secretCards.clear();
 }
 
 void Hero::Use()

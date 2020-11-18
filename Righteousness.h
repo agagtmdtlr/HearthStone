@@ -6,10 +6,7 @@ class Righteousness :
 public:
 	Righteousness() {}
 	Righteousness(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual ~Righteousness() {}
 	virtual bool FirstSkill() override;

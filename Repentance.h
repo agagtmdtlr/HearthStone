@@ -6,10 +6,7 @@ class Repentance :
 public:
 	Repentance() {}
 	Repentance(
-		BattleField * field,
-		int cost,
-		string name,
-		int power
+		BattleField * field
 	);
 	virtual void FirstSkill() override;
 	virtual void detail() override;

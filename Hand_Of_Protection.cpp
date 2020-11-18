@@ -3,7 +3,7 @@
 #include "Creature.h"
 #include "Hand_Of_Protection.h"
 
-Hand_Of_Protection::Hand_Of_Protection(BattleField * field, int cost, string name, int power)
+Hand_Of_Protection::Hand_Of_Protection(BattleField * field)
 	:Magic(field, 1, "°â¼Õ", 0,false)
 {
 }
