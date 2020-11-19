@@ -5,12 +5,11 @@
 #include "Hero.h"
 #include "Weapon.h"
 #include "Secret.h"
-
 #include "CardSpawner.h"
 
 #include "BattleField.h"
 
-
+#include "Tirion_Fordring.h"
 
 
 BattleField::BattleField()	
@@ -29,7 +28,14 @@ void BattleField::Attack(int turn ,Card * myCard, Card * yourCard)
 
 	
 	// 선택된 하수인이 공격할 수 있는지 판별한다. ( 공격횟수 부족이나 빙결이면 공격 불가 )
-	if (arrFight[turn]->GetPower() <= 0) return; // 공격력이 0이면 공격불가.
+	if (arrFight[turn]->GetPower() <= 0)
+	{
+		//cout << "power" << endl;
+		cout << arrFight[turn]->GetPower() << endl;
+		//system("pause");
+		return; // 공격력이 0이면 공격불가.
+	}
+		
 	if (arrFight[turn]->GetAttackCount() <= 0 || arrFight[turn]->GetIced() == true)
 	{
 		cout << "이번 턴에 더 이상 공격할 수 없습니다." << endl;
@@ -37,6 +43,8 @@ void BattleField::Attack(int turn ,Card * myCard, Card * yourCard)
 		return;
 	}
 
+	//cout << "checkiscanAttack" << endl;
+	//system("pause");
 	//  필드에 도발이 존재하면 도발을 우선으로 공격해야 한다.
 	//  현재 상대를 공격할 수 있는지 판별한다
 	if (CheckIsCanAttack(turn, arrFight[1 - turn]) == true)
@@ -44,6 +52,8 @@ void BattleField::Attack(int turn ,Card * myCard, Card * yourCard)
 		// 공격 이벤트 발생
 		arrFight[turn]->ExcuteObserver(EVENT::ATTACK);		
 		
+		//cout << "canAttack" << endl;
+		//system("pause");
 		// 공격을 한 하수인은 공격 횟수가 차감되고 서로의 전투효과와 데미지를 처리한다.
 		arrFight[turn]->SetAttackCount(-1); // 공격 횟수 차감
 
@@ -70,7 +80,6 @@ bool BattleField::CheckIsCanAttack(int turn, Creature * target)
 	if (target->GetInvincibility() == true) return false; // 무적이면 공격 불가
 	if (target->GetAttackTargeted() == false) return false; // 타켓팅 가능한지 확인하기
 
-	bool isAgroOnField = false;
 	int enemyTurn = 1 - turn;
 	for (int i = 0; i < cardsOfField[enemyTurn].size(); i++)
 	{
@@ -99,9 +108,15 @@ void BattleField::Draw(int turn)
 	// 덱이 비지 않았을 경우
 	Card* card = cardsOfDeck[turn].back();	
 	for (int i = 0; i < observers[turn].size(); i++)
-	{
-		observers[turn][i]->onNotify(*card, EVENT::DRAW);
+	{		
+		/*cout << "call observer for draw" << endl;
+		cout << observers[turn][i]->GetName() << endl;
+		cout << observers[turn][i] << endl;
+		system("pause");*/
+		
+		observers[turn][i]->onNotify(card, EVENT::DRAW);
 	}
+	
 	cardsOfDeck[turn].pop_back();	
 	if (cardsOfHand[turn].size() >= HandMax)
 	{
@@ -158,6 +173,8 @@ void BattleField::DeleteCards()
 	int i = 0;
 	for (int turn = 0; turn < 2; turn++)
 	{
+
+
 		Hero * hero = (Hero *)User[turn];
 		Weapon * weapon = hero->GetWeapon();
 		if (weapon != nullptr)
@@ -168,6 +185,8 @@ void BattleField::DeleteCards()
 			}
 			
 		}
+
+		
 		
 		vector<Secret *> * secretCards = hero->GetSecret();
 		while (1)
@@ -244,11 +263,17 @@ void BattleField::ShowField()
 {
 	int turn = nPlayerTurn % 2;
 	int e_turn = 1 - turn;
-	Creature * myPlayerBody =dynamic_cast<Creature *>(User[turn]);
-	Creature * enemyPlayerBody = dynamic_cast<Creature *>(User[e_turn]);
+	Hero * myPlayerBody =dynamic_cast<Hero *>(User[turn]);
+	Hero * enemyPlayerBody = dynamic_cast<Hero *>(User[e_turn]);
 
 	cout << "PLAYER" << turn << " TURN" << endl;
-	cout << "\t\t상대 체력 : " << enemyPlayerBody->GetShield() << endl;
+	cout << "\t\t상대 영웅: ";
+	enemyPlayerBody->Info();
+	cout << endl;
+	enemyPlayerBody->InfoAboutWeapon();
+	cout << endl;
+	enemyPlayerBody->InfoAboutSecrets();
+	cout << endl;
 	cout << "현재 상대의 덱에 남은 카드 수 : " 
 		<< cardsOfDeck[e_turn].size() << endl;
 	cout << "상대 패 : ";
@@ -258,28 +283,40 @@ void BattleField::ShowField()
 	cout << "상대 필드 : ";
 	for (int i = 0; i < cardsOfField[e_turn].size(); i++)
 	{
+		cout << "(" << i << ")" << "[ ";
 		cardsOfField[e_turn][i]->Info();
-		cout << "\t";
+		cout << " ]";
+		cout << "  ";
 	}
 	cout << "\n================================================" << endl;
 	
 	cout << "내 필드 : ";
 	for (int i = 0; i < cardsOfField[turn].size(); i++)
 	{
+		cout << "(" << i << ")" << "[ ";
 		cardsOfField[turn][i]->Info();
-		cout << "\t";
+		cout << " ]";
+		cout << "  ";
 	}
-	cout << endl;
+	cout << "\n================================================" << endl;
 	cout << "내 패 : ";
 	for (int i = 0; i < cardsOfHand[turn].size(); i++)
 	{
+		cout << "(" << i  << ")" << "[ ";
 		cardsOfHand[turn][i]->Info();
-		cout << "\t";
+		cout << " ]";
+		cout << "  ";
 	}
 	cout << endl;
 	cout << "현재 나의 덱에 남은 카드 수 : "
 		<< cardsOfDeck[turn].size() << endl;
-	cout << "\t\t나의 체력 : " << myPlayerBody->GetShield() << endl;
+	cout << "\t\t나의 영웅 : ";
+	myPlayerBody->Info();
+	cout << endl;
+	myPlayerBody->InfoAboutWeapon();
+	cout << endl;
+	myPlayerBody->InfoAboutSecrets();
+	cout << endl;
 	cout << "남은 코스트 : " << cost[turn];
 		
 }
@@ -301,7 +338,9 @@ void BattleField::InitGame()
 		{
 			nPlayerTurn = i;
 			User[i] = new Hero(this, 0, "Player" + i, 0, 600, 1, false, false, false);
-		}		
+		}	
+
+		observers[i].clear();
 	}
 	nPlayerTurn = 0;
 
@@ -336,11 +375,7 @@ void BattleField::InitGame()
 
 		vector<CardName> cardlist =
 		{
-				CardName::ALDOR_PEACE_KEEPER,
-				CardName::ARGENT_PROTECTER,
-				CardName::BRONZE_BROODMOTHER,
-				CardName::GUARDIAN_OF_KINGS,
-				CardName::TIRION_FORDRING,
+				
 				CardName::AVENGING_WRATH,
 				CardName::BLESSING_OF_AEONS,
 				CardName::BLESSING_OF_KINGS,
@@ -357,35 +392,59 @@ void BattleField::InitGame()
 				CardName::EQUALITY,
 				CardName::HAMMER_OF_WRATH,
 				CardName::EYE_FOR_AN_EYE,
+
 				CardName::HAND_OF_SALVATION,
+
 				CardName::NOBLE_SACRIFICE,
 				CardName::REDEMPTION,
 				CardName::REPENTANCE,
 				CardName::LIGHTS_JUSTICE,
 				CardName::SWORD_OF_JUSTICE,
-				CardName::TRUESILVER_CHAMPION
+				CardName::TRUESILVER_CHAMPION,
+
+				CardName::ALDOR_PEACE_KEEPER,
+				CardName::ARGENT_PROTECTER,
+				
+				CardName::BRONZE_BROODMOTHER,
+				CardName::GUARDIAN_OF_KINGS,
+				CardName::TIRION_FORDRING
 		};
 
 		CardSpawner cardSpawner;
-		if( i == 0)
+		//cout << "카드 생성" << endl;
+		if (i == 0)
+		{
 			cardSpawner.SpawnCards(&cardlist, this);
+			cardsOfField[i].push_back(new Creature(this, 0, "연습 봇", 999, 99999, 9999, false, false, false));
+		}			
 		else if (i == 1)
 		{
+			cardsOfField[i].push_back(new Tirion_Fordring(this));
 			cardsOfField[i].push_back(new Creature(this, 0, "연습 봇", 999, 99999, 9999, false, false, false));
+			cardsOfField[i].push_back(new Creature(this, 0, "연습 봇", 999, 99999, 9999, false, false, false));
+			cardsOfField[i].push_back(new Creature(this, 0, "연습 봇", 999, 99999, 9999, false, false, false));
+			
 		}
+		//cout << "카드 생성 완료" << endl;
+		//system("pause");
 	}	
-
 	nPlayerTurn = 0;	
 }
 
 void BattleField::InitTurn()
 {
 	int turn = nPlayerTurn % 2;
+	int attackCount;
+	// 영웅 턴 초기화
+	Hero * hero = (Hero *)User[turn];
+	attackCount = hero->GetAttackCountTurn() - hero->GetAttackCount();
+	hero->SetAttackTargeted(true);
+	// 필드 내 하수인 턴 초기화
 	for (int i = 0; i < cardsOfField[turn].size(); i++)
 	{
 		Creature * card = dynamic_cast<Creature *>(cardsOfField[turn][i]);
 		// 충전해줘야 할 공격 횟수 = 이번턴에 부여할 횟수 - 남아잇는 공격 횟수
-		int attackCount = card->GetAttackCountTurn() - card->GetAttackCount();
+		attackCount = card->GetAttackCountTurn() - card->GetAttackCount();
 		card->SetAttackCount(attackCount);
 		card->SetAttackTargeted(true);
 	}
@@ -440,5 +499,11 @@ void BattleField::CallObservers(int turn ,Card & card, EVENT event)
 void BattleField::CallObservers(int turn, Card * card, EVENT event)
 {
 	for (int i = 0; i < observers[turn].size(); i++)
-		observers[turn][i]->onNotify(card, event);
+	{
+		cout << i << endl;
+		Card * card = (Card *)observers[turn][i];
+		cout << card->GetName() << endl;
+		observers[turn][i]->onNotify(card, event);		
+	}
+		
 }

@@ -20,6 +20,7 @@ bool Blessed_Champion::FirstSkill()
 	{
 		target->SetPlusSkillDetail(strDescribeSkillDetail);
 		target->SetPower(target->GetPower());
+		return true;
 	}
 }
 

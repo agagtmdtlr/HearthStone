@@ -25,6 +25,7 @@ void Secret::Use()
 			cout << "====================================" << endl;
 			cout << "== 비밀카드를 더 장착할 수 없습니다 .==" << endl;
 			cout << "====================================" << endl;
+			battleFieldOfCard->cardsOfHand[nThisCardUserNumber].push_back(this);
 			Sleep(1000);
 			return;
 		}			

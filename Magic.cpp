@@ -167,7 +167,9 @@ void Magic::Use()
 		if (this->FirstSkill() == false)
 		{
 			cout << "카드를 사용할 수 없습니다" << endl;
+			battleFieldOfCard->cardsOfHand[nThisCardUserNumber].push_back(this);
 			Sleep(500);
+			return;
 		}
 		cout << "=================================" << endl;
 		cout << "==" << strName << "를(을) 사용합니다==" << endl;
@@ -181,6 +183,7 @@ void Magic::Use()
 		cout << "=================================" << endl;
 		cout << "==가지고 있는 코스트가 부족합니다.==" << endl;
 		cout << "=================================" << endl;
+		battleFieldOfCard->cardsOfHand[nThisCardUserNumber].push_back(this);
 	}
 	Sleep(1000);
 }

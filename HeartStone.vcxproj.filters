@@ -31,6 +31,12 @@
     <Filter Include="Header Files\Secret">
       <UniqueIdentifier>{7d53987f-307b-42c5-afcf-e656faa2f3ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Weapon">
+      <UniqueIdentifier>{80497dad-7ff7-44df-aa1e-e04257069ca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Weapon">
+      <UniqueIdentifier>{74f5c5d0-2991-44a7-8c45-8204e8ece5e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,29 +135,29 @@
     <ClCompile Include="Righteousness.cpp">
       <Filter>Source Files\Magic</Filter>
     </ClCompile>
-    <ClCompile Include="Hammer_Of_Wrath.cpp">
+    <ClCompile Include="CardSpawner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Blessed_Champion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Equality.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Magic</Filter>
     </ClCompile>
     <ClCompile Include="Blessing_Of_Might.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Magic</Filter>
     </ClCompile>
-    <ClCompile Include="Lights_Justice.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Equality.cpp">
+      <Filter>Source Files\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="Hammer_Of_Wrath.cpp">
+      <Filter>Source Files\Magic</Filter>
     </ClCompile>
     <ClCompile Include="Truesilver_Champion.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Weapon</Filter>
     </ClCompile>
     <ClCompile Include="Sword_Of_Justice.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Weapon</Filter>
     </ClCompile>
-    <ClCompile Include="CardSpawner.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Lights_Justice.cpp">
+      <Filter>Source Files\Weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -248,29 +254,29 @@
     <ClInclude Include="Righteousness.h">
       <Filter>Header Files\Magic</Filter>
     </ClInclude>
-    <ClInclude Include="Hammer_Of_Wrath.h">
+    <ClInclude Include="CardSpawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Blessed_Champion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Equality.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Magic</Filter>
     </ClInclude>
     <ClInclude Include="Blessing_Of_Might.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Magic</Filter>
     </ClInclude>
-    <ClInclude Include="Lights_Justice.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Hammer_Of_Wrath.h">
+      <Filter>Header Files\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="Equality.h">
+      <Filter>Header Files\Magic</Filter>
     </ClInclude>
     <ClInclude Include="Truesilver_Champion.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Weapon</Filter>
     </ClInclude>
     <ClInclude Include="Sword_Of_Justice.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Weapon</Filter>
     </ClInclude>
-    <ClInclude Include="CardSpawner.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Lights_Justice.h">
+      <Filter>Header Files\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

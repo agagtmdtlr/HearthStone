@@ -8,8 +8,8 @@
 using namespace std;
 
 #define DeckSetting 40
-#define HandMax 5
-#define FieldMax 5
+#define HandMax 10
+#define FieldMax 8
 #define SecretMax 3
 
 enum class EVENT

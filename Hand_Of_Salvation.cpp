@@ -55,9 +55,9 @@ void Hand_Of_Salvation::onNotify(Card * card, EVENT event)
 			nDeathCount++;
 		}
 		// 2¹øÂ° Á×À¸¸é
-		if (nDeathCount >= 2)
+		if (nDeathCount == 2)
 		{
-			Creature * creature = (Creature *)&card;
+			Creature * creature = (Creature *)card;
 			Creature * newCreature = new Creature(*creature);
 			newCreature->InitStat();
 			battleFieldOfCard->cardsOfField[nThisCardUserNumber].push_back(newCreature);

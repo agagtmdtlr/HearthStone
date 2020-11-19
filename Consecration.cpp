@@ -18,7 +18,7 @@ bool Consecration::FirstSkill()
 	for (auto card : battleFieldOfCard->cardsOfField[1 - turn])
 	{
 		Creature * creature = (Creature *)card;
-		creature->SetDelete(-damage);
+		creature->SetShield(-damage);
 	}
 	return true;
 }

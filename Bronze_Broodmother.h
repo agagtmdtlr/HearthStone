@@ -9,7 +9,7 @@ public:
 
 	~Bronze_Broodmother();
 	virtual void detail() override;
-	virtual void onNotify(const Card& card, EVENT event);
-	virtual void onNotify(const Card* card, EVENT event);
+	virtual void onNotify(Card& card, EVENT event) override;
+	virtual void onNotify(Card* card, EVENT event) override;
 };
 

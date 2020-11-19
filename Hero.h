@@ -51,5 +51,9 @@ public:
 		nAttackCount -= nAttackCount - nAttackCountOrigin;
 		nAttackCountTurn = nAttackCountOrigin;
 	}	
+
+	virtual void Info();
+	virtual void InfoAboutWeapon();
+	virtual void InfoAboutSecrets();
 };
 

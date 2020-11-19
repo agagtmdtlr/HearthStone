@@ -42,7 +42,7 @@ void CardSpawner::SpawnCards(vector<CardName>* cardList ,BattleField * field)
 	{
 		CardName card = cardList->at(i);
 
-		auto deck = field->cardsOfDeck[field->nPlayerTurn % 2];
+		auto & deck = field->cardsOfDeck[field->nPlayerTurn % 2];
 		switch (card)
 		{
 			// CREATURE

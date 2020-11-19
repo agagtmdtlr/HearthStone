@@ -101,7 +101,7 @@ void Creature::SetShield(int val)
 	if (nShield <= 0) // 카드 소멸 판단
 	{
 		ExcuteObserver(EVENT::DIE);
-		isDelete = true;
+		SetDelete(true);
 	}		
 }
 
@@ -114,17 +114,26 @@ void Creature::Use()
 		cout << "=================================" << endl;
 		cout << "==      필드가 꽉 찼습니다.     ==" << endl;
 		cout << "=================================" << endl;
-		Sleep(1000);
+		Sleep(500);
 		return;
 	}
-
+	/*cout << 1 << isHolyShiled << endl;
+	system("pause");*/
 	if (battleFieldOfCard->cost[turn] >= nCost)
 	{
 		battleFieldOfCard->cost[turn] -= nCost; // 코스트 소모
+		/*cout << 2 << isHolyShiled << endl;
+		system("pause");*/
 		if (isSilence == false)
 			FirstSkill();
+		/*cout << 3 << isHolyShiled << endl;
+		system("pause");*/
 		SummonCreature(turn);
+		/*cout << 4 << isHolyShiled << endl;
+		system("pause");*/
 		Card::Use();
+		/*cout << 5 << isHolyShiled << endl;
+		system("pause");*/
 	}
 	else
 	{
@@ -132,7 +141,7 @@ void Creature::Use()
 		cout << "==가지고 있는 코스트가 부족합니다.==" << endl;
 		cout << "=================================" << endl;
 	}
-	Sleep(1000);
+	Sleep(500);
 }
 
 void Creature::SummonCreature(int turn)
@@ -141,8 +150,7 @@ void Creature::SummonCreature(int turn)
 	cout << "==" << strName << "를(을) 소환합니다==" << endl;
 	cout << "=================================" << endl;	
 	battleFieldOfCard->cardsOfField[turn].push_back(this);	
-	ExcuteObserver(EVENT::FIELD);
-	
+	ExcuteObserver(EVENT::FIELD);	
 }
 
 

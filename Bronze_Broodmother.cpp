@@ -12,9 +12,7 @@ Bronze_Broodmother::Bronze_Broodmother(BattleField * field)
 	:Creature(field, 4, "청동용군단 무리어미", 5, 5, 1, false, false, false)
 {
 	
-	int turn = battleFieldOfCard->nPlayerTurn % 2;
-	cout << turn << endl;
-	system("pause");
+	int turn = nThisCardUserNumber;
 	battleFieldOfCard->AddObserver(turn, this);
 }
 
@@ -30,16 +28,17 @@ void Bronze_Broodmother::detail()
 		<< "1/1 작은 새끼용을 소환합니다." << endl;
 }
 
-void Bronze_Broodmother::onNotify(const Card & card, EVENT event)
+void Bronze_Broodmother::onNotify(Card & card, EVENT event)
 {
 	
+	int turn = nThisCardUserNumber;
 
-	if (&card == this && event == EVENT::DRAW && isSilence == false)
-	{
-		int turn = battleFieldOfCard->nPlayerTurn % 2;
+	if (&card == nullptr) return;
+	if (&card == this && event == EVENT::DRAW)
+	{		
 		cout << "1/1 작은 새끼용을 소환합니다." << endl;
 		Sleep(1000);
-		battleFieldOfCard->cardsOfField[turn].push_back(new Creature(battleFieldOfCard, 0, "작은 새끼용", 1, 1, 1, false, false, false));
+		battleFieldOfCard->cardsOfField[nThisCardUserNumber].push_back(new Creature(battleFieldOfCard, 1, "작은 새끼용", 1, 1, 1, false, false, false));
 		for (int i = 0; i < battleFieldOfCard->observers[turn].size(); i++)
 		{
 			if (this == battleFieldOfCard->observers[turn][i])
@@ -51,15 +50,17 @@ void Bronze_Broodmother::onNotify(const Card & card, EVENT event)
 		
 }
 
-void Bronze_Broodmother::onNotify(const Card * card, EVENT event)
+void Bronze_Broodmother::onNotify(Card * card, EVENT event)
 {
-	int turn = battleFieldOfCard->nPlayerTurn % 2;
+	int turn = nThisCardUserNumber;
+	
+	
+	if (card == nullptr) return;
 	if (card == this && event == EVENT::DRAW)	
-	{
-		
+	{		
 		cout << "1/1 작은 새끼용을 소환합니다." << endl;
 		Sleep(1000);
-		battleFieldOfCard->cardsOfField->push_back(new Creature(battleFieldOfCard, 1, "작은 새끼용", 1, 1, 1, false, false, false));
+		battleFieldOfCard->cardsOfField[nThisCardUserNumber].push_back(new Creature(battleFieldOfCard, 1, "작은 새끼용", 1, 1, 1, false, false, false));
 		for (int i = 0; i < battleFieldOfCard->observers[turn].size(); i++)
 		{
 			if (this == battleFieldOfCard->observers[turn][i])

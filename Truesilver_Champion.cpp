@@ -4,12 +4,12 @@
 #include "Truesilver_Champion.h"
 
 Truesilver_Champion::Truesilver_Champion(BattleField * field)
-	:Weapon(field, 1, "용사의 진은검", 4, 2, 1)
+	:Weapon(field, 4, "용사의 진은검", 4, 2, 1)
 {
 }
 
 Truesilver_Champion::Truesilver_Champion(int userNumber, BattleField * field)
-	: Weapon(userNumber, field, 1, "용사의 진은검", 4, 2, 1)
+	: Weapon(userNumber, field, 4, "용사의 진은검", 4, 2, 1)
 {
 }
 

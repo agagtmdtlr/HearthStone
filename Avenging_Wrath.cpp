@@ -21,6 +21,7 @@ bool Avenging_Wrath::FirstSkill()
 	for (int i = 0; i < fieldList.size();)
 	{
 		targetList.push_back((Creature *)fieldList[i]);
+		i++;
 	}	
 	size_t ListSize = targetList.size(); // 최종 완성된 리스트의 크기
 

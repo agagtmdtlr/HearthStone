@@ -5,12 +5,12 @@
 
 Holy_Wrath::Holy_Wrath(BattleField * field)
 	:Magic(field, 5, "신의 격노", 0, true)
-{
-	battleFieldOfCard->observers[nThisCardUserNumber].push_back(this);
+{	
 }
 
 bool Holy_Wrath::FirstSkill()
 {
+	battleFieldOfCard->observers[nThisCardUserNumber].push_back(this);
 	Card * card = SelectCardOfFieldAndHero();
 	if (card == nullptr)
 	{

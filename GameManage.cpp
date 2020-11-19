@@ -15,27 +15,38 @@ void GameManage::PlayGaming()
 	{		
 		field->InitGame();
 		isEndGame = false;
+		
 		while (!isEndGame)
 		{
 			system("cls");
 			// 게임 시작시 효과 발동
 			int turn = field->nPlayerTurn % 2;
+			//cout << "시작" << endl;
+			//system("pause");
 			field->CallObservers(turn,nullptr, EVENT::BEGIN);
+			//cout << "카드정리" << endl;
+			//system("pause");
 			field->DeleteCards();
-			// 공격 가능 횟수를 초기화
-			field->InitTurn();
-			// 게임 시작시 효과 발동
-			// 턴 시작
-			isEndTurn = false;
-			// 코스트 부여
-			int thisTurnCost = field->nPlayerTurn / 2 + 10;
-			if (thisTurnCost > field->maXCost)
-				field->cost[field->nPlayerTurn % 2] = field->maXCost;
+
+			// 테스트라 한 유저만 플레이
+			if (field->nPlayerTurn % 2 == 0)
+			{
+				// 공격 가능 횟수를 초기화
+				field->InitTurn();
+				// 게임 시작시 효과 발동
+				// 턴 시작
+				isEndTurn = false;
+				// 코스트 부여
+				int thisTurnCost = field->nPlayerTurn / 2 + 10;
+				if (thisTurnCost > field->maXCost)
+					field->cost[field->nPlayerTurn % 2] = field->maXCost;
+				else
+					field->cost[field->nPlayerTurn % 2] = thisTurnCost;
+				// 드로우
+				field->Draw(turn);
+			}			
 			else
-				field->cost[field->nPlayerTurn % 2] = thisTurnCost;
-			// 드로우
-			field->Draw(turn);
-			
+				isEndTurn = true;
 			while (!isEndTurn)
 			{
 				system("cls");				
@@ -70,8 +81,8 @@ void GameManage::PlayGaming()
 bool GameManage::SelectAction()
 {
 	int inputNum=0;
-	unsigned int myCreatureIndex = 0;
-	unsigned int enemyCreatureIndex = 0;
+	int myCreatureIndex = 0;
+	int enemyCreatureIndex = 0;
 	int selectNum = 0;
 	int turn = field->nPlayerTurn % 2;
 	E_ACTION myAction;
@@ -87,13 +98,13 @@ bool GameManage::SelectAction()
 		
 
 		cout << "공격할 나의 하수인을 선택하세요 : ";
-		myCreatureIndex = InputVariable<unsigned int>(myCreatureIndex); // input test
+		myCreatureIndex = InputVariable<int>(myCreatureIndex); // input test
 		if (myCreatureIndex >= field->cardsOfField[turn].size())
 			return false;
 		field->cardsOfField[turn][myCreatureIndex]->detail();
 		cout << "--------------------------------------------------" << endl;
 		cout << "적 하수인?(0)상대 영웅?(1) : ";
-		enemyCreatureIndex = InputVariable<unsigned int>(enemyCreatureIndex);
+		enemyCreatureIndex = InputVariable<int>(enemyCreatureIndex);
 		if (enemyCreatureIndex == 1)
 		{
 			field->Attack(
@@ -105,9 +116,14 @@ bool GameManage::SelectAction()
 		else
 		{
 			cout << "공격할 적의 하수인을 선택하세요 : ";
-			enemyCreatureIndex = InputVariable<unsigned int>(enemyCreatureIndex);
-			if (myCreatureIndex >= field->cardsOfField[abs(turn - 1)].size())
+			enemyCreatureIndex = InputVariable<int>(enemyCreatureIndex);
+			if (enemyCreatureIndex >= field->cardsOfField[1 - turn].size())
+			{
+				cout << enemyCreatureIndex << field->cardsOfField[1 - turn].size() << endl;
+				system("pause");
 				return false;
+			}
+				
 			//두카드의 싸움
 			field->Attack(
 				turn,

@@ -105,3 +105,33 @@ void Hero::SetWeapon(Weapon * val)
 			nAttackCount = nAttackCountTurn;
 	}
 }
+
+void Hero::Info()
+{
+	int nTotalPower = nPower;
+	if (weapon != nullptr)
+		nTotalPower += weapon->GetPower();
+	cout << "|" << nTotalPower << "|" << nShield;
+}
+
+void Hero::InfoAboutWeapon()
+{
+	cout << "\t\t 무기 :";
+	if (weapon != nullptr)
+		weapon->Info();	
+}
+
+void Hero::InfoAboutSecrets()
+{
+	cout << "\t\t 비밀 카드 :";
+	for (auto iter : secretCards)
+	{
+		if (battleFieldOfCard->nPlayerTurn % 2 != nThisCardUserNumber)
+			cout << " [ ? ] ";
+		else
+			cout << " [ " << iter->GetName() << " ] ";
+	}
+	for (int i = 0; i < 3 - secretCards.size(); i++)
+		cout << " [   ] ";
+			
+}

@@ -65,6 +65,10 @@ void Card::EraseObserverFromObserverList(int turn)
 			observerList.erase(observerList.begin() + i);
 			break;
 		}
+		else
+		{
+			i++;
+		}
 	}
 }
 

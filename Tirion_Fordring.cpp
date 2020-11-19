@@ -10,7 +10,7 @@ Tirion_Fordring::Tirion_Fordring()
 }
 
 Tirion_Fordring::Tirion_Fordring(BattleField * field)
-	:Creature(field, 7, "티리온 폴드링", 6, 6, 1, true, true, false)
+	:Creature(field, 7, "티리온 폴드링", 6, 6, 1, true, false, false)
 {
 }
 
@@ -29,8 +29,6 @@ void Tirion_Fordring::detail()
 
 void Tirion_Fordring::SetDelete(bool val)
 {
-	cout << "delete" << endl;
-	system("pause");
 	Card::SetDelete(val);
 	cout << "5/3 파멸의 인도자를 장착합니다." << endl;
 	Sleep(1500);
@@ -39,12 +37,8 @@ void Tirion_Fordring::SetDelete(bool val)
 			battleFieldOfCard, 2, "파멸의 인도자", 5, 3, 1, false, false, false));*/
 	
 	Hero * hero = (Hero *)battleFieldOfCard->User[nThisCardUserNumber];
-	hero->SetWeapon(
-		new Weapon(
-			nThisCardUserNumber,
-			battleFieldOfCard, 2, "파멸의 인도자", 5, 3, 1)
-	);
 	
-	cout << "end" << endl;
-	system("pause");
+	Weapon * weapon = 
+		new Weapon(nThisCardUserNumber, battleFieldOfCard, 2, "파멸의 인도자", 5, 3, 1);
+	hero->SetWeapon(weapon);	
 }
