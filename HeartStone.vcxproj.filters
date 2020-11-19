@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Weapon">
       <UniqueIdentifier>{74f5c5d0-2991-44a7-8c45-8204e8ece5e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\CardCategory">
+      <UniqueIdentifier>{88dba992-fc33-4b3c-8de7-2488fcad6029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CardCategory">
+      <UniqueIdentifier>{ab0fa362-7849-42d8-96d7-c30a72f4f766}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -46,12 +52,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Card.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Creature.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Magic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BattleField.cpp">
@@ -77,15 +77,6 @@
     </ClCompile>
     <ClCompile Include="Tirion_Fordring.cpp">
       <Filter>Source Files\Creature</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hero.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Secret.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Humility.cpp">
       <Filter>Source Files\Magic</Filter>
@@ -159,18 +150,27 @@
     <ClCompile Include="Lights_Justice.cpp">
       <Filter>Source Files\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="Creature.cpp">
+      <Filter>Source Files\CardCategory</Filter>
+    </ClCompile>
+    <ClCompile Include="Hero.cpp">
+      <Filter>Source Files\CardCategory</Filter>
+    </ClCompile>
+    <ClCompile Include="Magic.cpp">
+      <Filter>Source Files\CardCategory</Filter>
+    </ClCompile>
+    <ClCompile Include="Secret.cpp">
+      <Filter>Source Files\CardCategory</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files\CardCategory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Card.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Creature.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Magic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BattleField.h">
@@ -196,15 +196,6 @@
     </ClInclude>
     <ClInclude Include="Tirion_Fordring.h">
       <Filter>Header Files\Creature</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hero.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Secret.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Humility.h">
       <Filter>Header Files\Magic</Filter>
@@ -277,6 +268,21 @@
     </ClInclude>
     <ClInclude Include="Lights_Justice.h">
       <Filter>Header Files\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Header Files\CardCategory</Filter>
+    </ClInclude>
+    <ClInclude Include="Hero.h">
+      <Filter>Header Files\CardCategory</Filter>
+    </ClInclude>
+    <ClInclude Include="Magic.h">
+      <Filter>Header Files\CardCategory</Filter>
+    </ClInclude>
+    <ClInclude Include="Secret.h">
+      <Filter>Header Files\CardCategory</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\CardCategory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
